@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Мария Витальевна, с днём рождения!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <audio id="mus">
+      <source src="fortress.wav" type="audio/x-wav">
+      <source src="fortress.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="mrv">
+      <source src="marvit-dr.wav" type="audio/x-wav">
+      <source src="marvit-dr.mp3" type="audio/mpeg">
+    </audio>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(to bottom left, #0000ff, #8000ff, #ff00ff);
+      }
+      .duck {
+        background: url("marvit-duck-say.jpg");
+        width: 60%;
+        height: 85%;
+        background-repeat: round;
+        border-radius: 5px;
+        box-shadow: 4px 4px 5px #000,
+                    -4px 4px 5px #000,
+                    4px -4px 5px #000,
+                    -4px -4px 5px #000;
+      }
+      .speech {
+        padding: 20px;
+        background: white;
+        border-radius: 50% 50% 2px 50%;
+        border: 2px solid #000;
+        display: inline-block;
+        box-shadow: 4px 4px 5px #ff00ff,
+                    -4px 4px 5px #8000ff,
+                    4px -4px 5px #8000ff,
+                    -4px -4px 5px #0000ff;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: Rubik, Roboto, Arial, sans-serif;
+        position: relative;
+      }
+      .hide {
+        position: fixed;
+        z-index: 100;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: #fff;
+      }
+      button {
+        display: block;
+        border: none;
+        background: #444;
+        color: #fff;
+        padding: 10px 28px;
+        font-variant: small-caps;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        font-size: 36px;
+        font-weight: bold;
+        font-family: Rubik, Roboto, Arial, sans-serif;
+        margin: 0 auto;
+        width: 30%;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hide" id="hide">
+      <button id="runbtn">Старт</button>
+    </div>
+    <div class="duck">
+      <div class="speech" style="left: 125px; top: 25px; cursor: pointer;" onclick="speech.play();">
+        <p>Мария Витальевна,</p>
+        <p>с днём рождения!</p>
+      </div>
+    </div>
+    <script>
+      let music, speech;
+      let hidewin;
+      let runbtn;
+      document.body.onload = function() {
+        music = document.getElementById("mus");
+        speech = document.getElementById("mrv");
+        hidewin = document.getElementById("hide");
+        runbtn = document.getElementById("runbtn");
+        runbtn.onclick = function() {
+          hidewin.remove();
+          music.play();
+        }
+      }
+    </script>
+  </body>
+</html>
