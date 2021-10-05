@@ -89,7 +89,7 @@
       <button id="runbtn">Старт</button>
     </div>
     <div class="duck">
-      <div class="speech" style="left: 125px; top: 25px; cursor: pointer;" onclick="music.volume = 0.4;speech.play();">
+      <div class="speech" style="left: 125px; top: 25px; cursor: pointer;" onclick="music.pause();speech.play();">
         <p>Мария Витальевна,</p>
         <p>с днём рождения!</p>
       </div>
@@ -109,10 +109,10 @@
         }
         music.addEventListener('ended', function() {
           this.currentTime = 0;
-          this.play()
+          this.play();
         }, false);
         speech.addEventListener('ended', function() {
-          music.volume = 1;
+          music.play();
         }, false);
       }
     </script>
